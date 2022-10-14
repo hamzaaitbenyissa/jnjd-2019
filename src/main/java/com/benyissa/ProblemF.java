@@ -1,20 +1,26 @@
 package com.benyissa;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-public class ProblemC {
+
+public class ProblemF {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int j;
-        int k;
-        j = scanner.nextInt();
-        for (int i = 0; i < n - 1; i++) {
-            k = scanner.nextInt();
-            if (j > k) {
-                System.out.println("false");
-                return;
-            }
-            j = k;
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            numbers.add(i);
         }
-        System.out.println("true");
+
+//        here we iterate the list of players and each round we remove losers until the winner is alone in the list
+        int i = 0;
+        while (numbers.size() > 1) {
+            i = i == numbers.size() ? 0 : 1;
+            while (i < numbers.size()) {
+                numbers.remove(i);
+                i += 1;
+            }
+        }
     }
 }
